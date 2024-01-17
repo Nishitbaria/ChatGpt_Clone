@@ -148,7 +148,7 @@ const Bubbles = ({ roomid }: Props) => {
   const fetchChatMessages = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/createChat/?id=${roomId}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/createChat/?id=${roomId}`
       );
       if (res.data) {
         setMessages(res.data.message);
