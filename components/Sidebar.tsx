@@ -96,7 +96,9 @@ const Sidebar = ({ roomid }: Props) => {
   const fetchAllRooms = async () => {
     toast("Fetching data...", { autoClose: false });
     try {
-      const res = await axios.get("http://localhost:3000/api/GetallRoom");
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/GetallRoom`
+      );
       if (res.data) {
         setRooms(res.data.room);
         toast.dismiss(); // Dismiss the fetching toast
